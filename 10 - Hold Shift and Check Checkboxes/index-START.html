@@ -96,6 +96,35 @@
   </div>
 
 <script>
+const checkboxes = document.querySelectorAll('.inbox input[type="checkbox"]')
+console.log(checkboxes)
+
+let lastChecked;
+
+function handleCheck(e) {
+
+let inBetween = false;
+  if(e.shiftKey && this.checked){
+
+  checkboxes.forEach(checkbox =>{
+
+    if(checkbox === this || checkbox === lastChecked){
+      // inBetween = !inBetween; <--- is ths line defining this var on every instance of our checklist
+    }
+
+    if(inBetween) {
+      checkbox.checked = true
+    }
+  })
+  }
+  lastChecked = this;
+}
+
+checkboxes.forEach(checkbox => checkbox.addEventListener('click',handleCheck))
+//this binding goes up a level because checkbox is the obj that is calling handle click (event listener is just the method that attches it)
+
+
+
 </script>
 </body>
 </html>
