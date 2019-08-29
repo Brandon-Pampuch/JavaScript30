@@ -49,6 +49,24 @@
 const bands = ['The Plot in You', 'The Devil Wears Prada', 'Pierce the Veil', 'Norma Jean', 'The Bled', 'Say Anything', 'The Midway State', 'We Came as Romans', 'Counterparts', 'Oh, Sleeper', 'A Skylit Drive', 'Anywhere But Here', 'An Old Dog'];
 
 
+let removedArticle = bands.map((cur, i) =>{
+  // can add an index on the string or prototype to be able to find it's original and match them
+  //if matach switch it out.
+  console.log(cur.slice(0,2))
+  if(cur.slice(0,2) === 'A '){
+    var A = cur.slice(2,cur.length)
+  }else if(cur.slice(0,3) === 'The' || cur.slice(0,3) === 'An '){
+    var A = cur.slice(3,cur.length)
+  }else{
+    var A = cur
+  }
+
+  return A
+
+})
+
+console.log(removedArticle.sort())
+
 </script>
 
 </body>
